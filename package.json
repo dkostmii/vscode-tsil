@@ -1,0 +1,25 @@
+{
+  "name": "vscode-tsil",
+  "displayName": "Ціль",
+  "description": "Підтримка Цілі у VSCode",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "tsil",
+      "aliases": ["Ціль", "tsil"],
+      "extensions": [".ц"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "tsil",
+      "scopeName": "source.tsil",
+      "path": "./syntaxes/tsil.tmLanguage.json"
+    }]
+  }
+}

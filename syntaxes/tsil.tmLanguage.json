@@ -1,0 +1,118 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Ціль",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#booleans"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#variables"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.tsil",
+				"match": "\\b(зовнішня|дія|якщо|інакше|поки|ціль|змінна|структура|композиція|секція|властивість|як|я)\\b"
+			}]
+		},
+		"types": {
+			"patterns": [{
+				"name": "support.type.primitive.tsil",
+				"match": "\\b(ц8|ц32|ц64|д32|д64|позитивне|п8|п32|п64|логічне|текст|сі)\\b"
+			}, {
+				"name": "support.type.struct.tsil",
+				"match": "\\b(\\w+(('|::)\\w+)?)\\b"
+			}]
+		},
+		"booleans": {
+			"patterns": [
+				{
+					"name": "constant.language.tsil",
+					"match": "\\b(так|ні)\\b"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.tsil",
+					"match": "\\b\\d+(\\.\\d+)?\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.tsil",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.tsil",
+					"match": "\\\\."
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
+				{
+					"comment": "виклик функції",
+					"begin": "(\\w+(('|::)\\w+)*)\\(",
+					"end": "\\)",
+					"beginCaptures": {
+						"1": {
+							"name": "entity.name.function.ccil"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#keywords"
+						},
+						{
+							"include": "#types"
+						},
+						{
+							"include": "#booleans"
+						},
+						{
+							"include": "#numbers"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include": "#functions"
+						},
+						{
+							"include": "#variables"
+						}
+					]
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"comment": "змінна",
+					"name": "variable.other.tsil",
+					"match": "(?<=(змінна|ціль)\\s)\\b(\\w+(('|::)\\w+)*)\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "source.tsil"
+}
