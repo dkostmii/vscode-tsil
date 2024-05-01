@@ -3,6 +3,9 @@
 	"name": "Ціль",
 	"patterns": [
 		{
+			"include": "#comments"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
@@ -25,6 +28,19 @@
 		}
 	],
 	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.tsil",
+					"match": "//.*$"
+				},
+				{
+					"name": "comment.block.tsil",
+					"begin": "/\\*.*",
+					"end": "\\*/"
+				}
+			]
+		},
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.tsil",
@@ -79,6 +95,9 @@
 						}
 					},
 					"patterns": [
+						{
+							"include": "#comments"
+						},
 						{
 							"include": "#keywords"
 						},
